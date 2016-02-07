@@ -1,0 +1,76 @@
+{
+	"baseName": "sample",
+	"packageName": "com.milanvasic.sample",
+	"entities": [
+		{
+			"name": "company",
+			"attrs": [
+				{
+					"attrName": "company_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "name",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "155",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "address",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "255",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "city",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "155",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "country",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "115",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "email",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "255",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "phone_number",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "200",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "no_employees",
+					"attrType": "Integer",
+					"min": "1",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				}
+			]
+		}
+	],
+	"resources": []
+}
