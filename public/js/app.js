@@ -4,6 +4,6 @@ angular.module('sample', ['ngResource', 'ngRoute', 'ui.bootstrap', 'ui.date'])
     $routeProvider
       .when('/', {
         templateUrl: 'views/company/companies.html',
-        controller: 'HomeController'})
+        controller: 'CompanyController'})
       .otherwise({redirectTo: '/'});
   }]);

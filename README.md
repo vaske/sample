@@ -64,7 +64,7 @@ curl -XPOST "http://localhost:8080/sample/companies" --data '{"company_id": "1",
 CURL example:
 
 ```
-curl -XPUT --data '{"id":1, "company_id": "1", "name": "Sample Name", "address": "sample address", "city": "sample city", "country": "sample country", "no_employees": "1"}'
+curl -XPUT "http://localhost:8080/sample/companies/:id" --data '{"id":":id", "company_id": "1", "name": "Sample Name", "address": "sample address", "city": "sample city", "country": "sample country", "no_employees": "1"}'
 ```
 
 **Delete company [DELETE]**
@@ -75,4 +75,15 @@ CURL example:
 
 ```
 curl -X DELETE "http://localhost:8080/sample/companies/:id"
+```
+
+
+**Add company owner [POST]**
+
+    sample/company_owners
+
+CURL example:
+
+```
+curl -XPOST "http://localhost:8080/sample/company_owners" --data '{"company_id": "1", "owner_name": "Sample Name"}'
 ```

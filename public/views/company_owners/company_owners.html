@@ -1,0 +1,93 @@
+<div>
+
+    <h2>Company Owners</h2>
+
+    <script type = "text/ng-template" id="company_owners-save.html">
+        <form name="form" role="form" novalidate
+              class="ng-scope ng-invalid ng-invalid-required ng-dirty"
+              ng-submit="ok()">
+
+            <div class="modal-header">
+                <button type="button" class="close"
+                        ng-click="cancel()">&times;</button>
+                <h4 class="modal-title" id="myCompany_ownersLabel">Create or edit a Company_owners</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" class="form-control" name="id"
+                           ng-model="company_owners.id" readonly>
+                </div>
+
+
+                <div class="form-group">
+                    <label>company_id:</label>
+
+                    <input type="number" class="form-control" name="company_id"
+                           ng-model="company_owners.company_id" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.company_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.company_id.$error.max">Must be less than or equal to .</span>
+                </div>
+
+                <div class="form-group">
+                    <label>owner_name:</label>
+
+                    <input type="text" class="form-control" name="owner_name"
+                           ng-model="company_owners.owner_name" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.owner_name.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.owner_name.$error.maxlength">Must be at most  characters.</span>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="cancel()">Cancel
+                </button>
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </script>
+
+    <button class="btn btn-primary btn-lg" ng-click="create()">
+        <span class="glyphicon glyphicon-flash"></span> Create a new Company Owner
+    </button>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+
+                <th>Company id</th>
+
+                <th>Owner's Name</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="company_owners in company_owners">
+                <td>{{company_owners.id}}</td>
+
+                <td>{{company_owners.company_id }}</td>
+
+                <td>{{company_owners.owner_name }}</td>
+
+                <td>
+                    <button type="submit"
+                            ng-click="update(company_owners.id)"
+                            class="btn">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit
+                    </button>
+                    <button type="submit"
+                            ng-click="delete(company_owners.id)"
+                            class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -24,7 +24,7 @@ public class App {
             return "";
         });
 
-        
+
         get("sample/companies", "application/json", (request, response) -> {
             List<Company> objs = HibernateUtil.getSession().createCriteria(Company.class).list();
             return objs;
@@ -61,7 +61,44 @@ public class App {
             response.status(204);
             return "";
         });
-        
+
+        get("sample/company_owners", "application/json", (request, response) -> {
+            List<CompanyOwners> objs = HibernateUtil.getSession().createCriteria(CompanyOwners.class).list();
+            return objs;
+        }, new JsonTransformer());
+
+        get("sample/company_owners/:id", "application/json", (request, response) -> {
+            long id = Long.parseLong(request.params(":id"));
+            CompanyOwners obj = (CompanyOwners)HibernateUtil.getSession().get(CompanyOwners.class, id);
+            if (obj == null) halt(404);
+            return obj;
+        }, new JsonTransformer());
+
+        post("sample/company_owners", "application/json", (request, response) -> {
+            CompanyOwners obj = JacksonUtil.readValue(request.body(), CompanyOwners.class);
+            HibernateUtil.getSession().saveOrUpdate(obj);
+            response.status(201);
+            return obj;
+        }, new JsonTransformer());
+
+        put("sample/company_owners/:id", "application/json", (request, response) -> {
+            long id = Long.parseLong(request.params(":id"));
+            CompanyOwners obj = (CompanyOwners)HibernateUtil.getSession().get(CompanyOwners.class, id);
+            if (obj == null) halt(404);
+            obj = JacksonUtil.readValue(request.body(), CompanyOwners.class);
+            obj = (CompanyOwners)HibernateUtil.getSession().merge(obj);
+            return obj;
+        }, new JsonTransformer());
+
+        delete("sample/company_owners/:id", (request, response) -> {
+            long id = Long.parseLong(request.params(":id"));
+            CompanyOwners obj = (CompanyOwners)HibernateUtil.getSession().get(CompanyOwners.class, id);
+            if (obj == null) halt(404);
+            HibernateUtil.getSession().delete(obj);
+            response.status(204);
+            return "";
+        });
+
 
         before((request, response) -> {
             HibernateUtil.getSession().beginTransaction();

@@ -70,6 +70,27 @@
 					"required": true
 				}
 			]
+		},
+		{
+			"name": "company_owners",
+			"attrs": [
+				{
+					"attrName": "company_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "owner_name",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": true
+				}
+			]
 		}
 	],
 	"resources": []
